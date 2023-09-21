@@ -1,0 +1,67 @@
+# Exercice 1
+
+L'exercice 1 consiste à remplir la fonction «agrandirTab(String[] tab)» 
+d'un petit programme qui lit des mots sur la ligne de commande jusqu'à
+ ce que l'utilisateur entre "stop" (en minuscules) et les trie.
+
+Voici un exemple d'utilisation du programme :
+
+$ java Exercice1
+// Mots entrés au clavier par l'utilisateur
+bonjour
+test
+test
+123
+ABC
+abc
+abc
+ift1025
+ift1015
+test
+stop
+// Affichage du programme
+123
+ABC
+abc
+abc
+bonjour
+ift1015
+ift1025
+test
+test
+test
+
+
+(Notez que les lignes qui commencent par des // sont des commentaires
+par rapport à l'exécution du programme, ça ne devrait pas faire partie
+de votre code)
+
+Vous avez une base de code à remplir, `Exercice1.java`, assurez-vous
+de coder la fonction «agrandirTab(String[] tab)» conformément à la 
+documentation fournie.
+
+_Vous ne devez *pas* modifier les noms, paramètres et types de retour
+de fonctions fournies_, mais sentez-vous libres d'ajouter des nouvelles
+fonctions et de nouvelles attributs au besoin.
+
+N'utilisez que les concepts vus en classe à date (donc pas
+d'ArrayList, LinkedList, ... ou autre chose que vous pourriez trouver
+sur internet)
+
+## Consignes
+
+- Assurez-vous que votre programme compile s'exécute correctement avec
+  les commandes :
+
+    javac Exercice1.java
+    java Exercice1
+
+- Ces exercices seront corrigés automatiquement. Assurez-vous de
+  respecter la spécification et **assurez-vous que votre programme
+  compile** si vous ne voulez pas vous retrouver avec la note de 0
+
+- Ne soumettez rien d'autre que le fichier Exercice1.java
+
+- Ce travail compte pour 5% de votre note finale
+
+- Aucun travail remis en retard ne sera évalué
