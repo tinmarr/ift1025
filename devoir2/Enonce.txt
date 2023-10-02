@@ -1,0 +1,38 @@
+# Devoir 2
+
+L'exercice consiste à remplir le code de 7 méthodes dans les classes Accident et Gaffe (cherchez pour les «TODO»), et de choisir si les attributs de la classe Accident sont statiques ou pas.
+
+Le code squelette ne va pas compiler "out of the box". Vous devez:
+
+A) choisir quels attributs de la classe Accident seront statiques. Pour les lignes 5-29 de la classe Accident, pour chaque attribut choisissez quelle ligne garder et supprimez l'autre. Par exemple si vous decidez que «cause» devrait être statique, supprimez la ligne 22, et gardez la ligne 23.
+
+B) Implementer les méthodes suivantes:
+- Accident#prochainID()
+- Accident#getNombreDesAccidents()
+- Accident#setNombreDesAccidents(int n)
+- Accident#getCause()
+- Accident#setCause(String c)
+- Gaffe#Gaffe(int temps)
+- Gaffe#genererRapport() 
+
+Regardez dans la classe Autograder.java pour voir le genre de sortie attendue pour la méthode Gaffe#genererRapport().
+
+Il est possible de implémenter chaqune méthode correctement avec une seule ligne de code.
+
+_Vous ne devez *pas* modifier les noms, paramètres et types de retour des méthodes fournies_, mais sentez-vous libres d'ajouter des nouvelles fonctions et de nouvelles attributs au besoin.
+
+Assurez vous de ne pas changer le package («comedie») ou les noms des classes.
+
+Assurez vous que de travailler avec des fichiers dont le texte est encodé sous UTF-8 (par exemple, Eclipse parfois pourrait changer l'encodage vers son défaut «Cp1250». Voir: [«How to change default text file encoding in Eclipse?»](https://stackoverflow.com/questions/3751791/how-to-change-default-text-file-encoding-in-eclipse) )
+
+## Consignes
+
+- Je vais compiler votre code sur linux (Debian-WSL) et executer les tests JUnit4 dans la classe Autograder avec les commandes: 
+```
+javac -d . -cp /usr/share/java/junit4.jar:. Autograder.java Accident.java Gaffe.java
+java -cp /usr/share/java/junit4.jar:/usr/share/java/hamcrest-core.jar:. org.junit.runner.JUnitCore comedie.Autograder
+```
+- Ces exercices seront corrigés automatiquement. Une point sera supprimé pour chaque test dans Autograder qui ne passe pas. Code qui ne compile ou n'execute pas (voir au dessus) sera accordé 0.
+- Ne soumettez rien d'autre que les fichiers Accident.java et Gaffe.java
+- Ce travail compte pour 5% de votre note finale
+- Aucun travail remis en retard ne sera évalué
