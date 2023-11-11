@@ -1,0 +1,31 @@
+# Devoir 3
+
+Cette exercise consiste à faire les tâches suivantes:
+
+Fichier ArrayListMatriceCarree.java:
+- Implementer la methode set()
+- Corriger la methode get() pour qu'elle lance correctement l'exception MatriceIndexOutOfBoundsException
+- Corriger la methode ajoute() pour qu'elle lance correctement l'exception MatricePleineException
+
+Fichier MatriceIterator.java:
+- Implementer la methode hasNext()
+- Corriger la methode next()
+- Corriger les parametres passées à l'appel à set() dans la methode remplace()
+
+## Notes
+
+- Lisez le code et les javadoc attentivement avant de commencer!
+- L'ordre des tâches ci-dessus n'est pas significative. 
+- Vous pouvez executer les tests sans utiliser JUnit, en executant la méthode main() de la classe AutograderSansJUnit.java
+
+## Consignes
+ 
+- Je vais compiler votre code sur linux (Debian-WSL) et executer les tests JUnit4 dans la classe Autograder avec les commandes: 
+```
+javac -d . -cp /usr/share/java/junit4.jar:. *.java
+java -cp /usr/share/java/junit4.jar:/usr/share/java/hamcrest-core.jar:. org.junit.runner.JUnitCore Autograder
+```
+- Ces exercices seront corrigés automatiquement. Une point sera supprimé pour chaque test dans Autograder qui ne passe pas. Code qui ne compile ou n'execute pas (voir au dessus) sera accordé 0.
+- Ne soumettez rien d'autre que les fichiers ArrayListMatriceCarree.java et	MatriceIterator.java
+- Ce travail compte pour 5% de votre note finale
+- Aucun travail remis en retard ne sera évalué
