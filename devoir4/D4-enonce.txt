@@ -1,0 +1,51 @@
+# Devoir 4
+
+## Contexte
+
+Vous avez un simple jeu de chasse au tresor. Un pirate lit in fichier contenant 6 types de commandes afin de trouver un tresor.
+Les 6 types de commandes sont:
+carte x y px py tx ty		// creer une carte -- voir constructeur de la classe Carte
+n X 						// marcher X pas vers le nord
+s X 						// marcher X pas vers le sud
+e X 						// marcher X pas ver l'est
+o X 						// marcher X pas vers l'ouest
+creuser 					// chercher pour le tresor et sortir le resultat à un fichier
+
+NB: tout commande est executée sur un objet Carte, voir le javadoc de la classe Commande et la methode jouer de la classe ChasseAuTresor
+
+## À faire
+
+Cette exercise cosnsiste à faire les tâches suivantes:
+
+Fichier ChasseAuTresor.java		
+	Corriger la methode creerCommande()
+	Corriger la methode parserCommandesDuFichier()
+	Faire la methode creerCommande() lancer la bonne exception
+
+Fichier CreerCarte.java
+	Corriger la methode CreerCarte.executerCommande()
+
+Fichier Creuser.java
+	Corriger la methode Creuser.executerCommande()
+
+Fichier Marcher.java
+	Implementer la methode Marcher.executerCommande()
+	Implementer le constructeur Marcher()
+
+## Notes
+
+- Lisez le code et les javadoc attentivement avant de commencer!
+- L'ordre des tâches ci-dessus n'est pas significative. 
+- Vous pouvez executer les tests sans utiliser JUnit, en executant la méthode main() de la classe AutograderSansJUnit.java
+
+## Consignes
+ 
+- Je vais compiler votre code sur linux (Debian-WSL) et executer les tests JUnit4 dans la classe Autograder avec les commandes: 
+```
+javac -d . -cp /usr/share/java/junit4.jar:. *.java
+java -cp /usr/share/java/junit4.jar:/usr/share/java/hamcrest-core.jar:. org.junit.runner.JUnitCore Autograder
+```
+- Ces exercices seront corrigés automatiquement. Une point sera supprimé pour chaque test dans Autograder qui ne passe pas. Code qui ne compile ou n'execute pas (voir au dessus) sera accordé 0.
+- Ne soumettez rien d'autre que les fichiers ChasseAuTresor.java, CreerCarte.java, Creuser.java, et Marcher.java
+- Ce travail compte pour 5% de votre note finale
+- Aucun travail remis en retard ne sera évalué
