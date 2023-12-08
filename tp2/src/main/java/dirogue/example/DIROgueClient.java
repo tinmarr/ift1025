@@ -1,10 +1,11 @@
 package dirogue.example;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.Scanner;
 
 /**
@@ -14,13 +15,22 @@ import java.util.Scanner;
  */
 public class DIROgueClient {
 	public static void main(String[] args) {
-		String serverAddress = null;
-		int serverPort = 0;
+		String serverAddress = "localhost";
+		int serverPort = 1370;
 
 		Socket socket = null;
 		PrintWriter out = null; // utilisé pour écrire dans le socket avec des commandes comme println()
 
-		// TODO: Se connecter au serveur.
+		try {
+			socket = new Socket(serverAddress, serverPort);
+			out = new PrintWriter(socket.getOutputStream(), true);
+		} catch (UnknownHostException e) {
+			System.out.println("Unknown host: " + serverAddress);
+			System.exit(1);
+		} catch (IOException e) {
+			System.out.println("No I/O");
+			System.exit(1);
+		}
 
 		Scanner scanner = new Scanner(System.in);
 		String input;
@@ -31,8 +41,21 @@ public class DIROgueClient {
 
 			if (input.equals("load")) {
 				System.out.println("Entrez le chemin du fichier que vous souhaitez charger :");
+				String filePath = scanner.nextLine().trim();
 
-				// TODO: Lire le fichier et envoyer les commandes au serveur ligne par ligne.
+				try {
+					File file = new File(filePath);
+					Scanner fileScanner = new Scanner(file);
+
+					while (fileScanner.hasNextLine()) {
+						String line = fileScanner.nextLine();
+						out.println(line);
+					}
+
+					fileScanner.close();
+				} catch (FileNotFoundException e) {
+					System.out.println("Le fichier n'a pas été trouvé.");
+				}
 
 			} else if (input.equals("save")) {
 				System.out.println(" Entrez le chemin où vous voulez sauvegarder le rapport :");
@@ -48,16 +71,16 @@ public class DIROgueClient {
 		}
 
 		System.out.println("Sortie du programme.");
-        scanner.close();
-        if (out != null) {
-            out.close();
-        }
-        if (socket != null) {
-            try {
-                socket.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+		scanner.close();
+		if (out != null) {
+			out.close();
+		}
+		if (socket != null) {
+			try {
+				socket.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

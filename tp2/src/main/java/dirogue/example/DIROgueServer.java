@@ -2,7 +2,10 @@ package dirogue.example;
 
 import java.io.IOException;
 
-import dirogue.example.code_squelette.*;
+import dirogue.example.code_squelette.Exterieur;
+import dirogue.example.code_squelette.Piece;
+import dirogue.example.code_squelette.RencontreType;
+import dirogue.example.code_squelette.Server;
 
 /**
  * Classe représentant le serveur pour l'application DIROgue.
@@ -43,7 +46,17 @@ public class DIROgueServer {
 
 			s.addEventHandler((cmd, cmdArgs) -> {
 				if (cmd.equals("corridor")) {
-					//TODO: Implémenter le handler et ajouter un corridor.
+					if (cmdArgs.length >= 2) {
+						int id1 = Integer.parseInt(cmdArgs[0]);
+						int id2 = Integer.parseInt(cmdArgs[1]);
+						try {
+							l.ajouteCorridor(id1, id2);
+						} catch (Exception e) {
+							System.out.println("Invalid arguments for corridor command");
+						}
+					} else {
+						System.out.println("Invalid arguments for corridor command");
+					}
 				}
 			});
 
@@ -56,7 +69,13 @@ public class DIROgueServer {
 
 			s.addEventHandler((cmd, cmdArgs) -> {
 				if (cmd.equals("save")) {
-					//TODO: Sauvegarder le fichier de rapport de l'aventure.
+					try {
+						if (cmdArgs.length == 1) {
+							m.sauvegarderRapport(cmdArgs[0]);
+						}
+					} catch (IOException e) {
+						System.out.println("An error occurred while saving the report.");
+					}
 				}
 			});
 

@@ -1,12 +1,13 @@
 package dirogue.example.view;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 /**
  * Vue pour le mode de replay.
@@ -118,12 +119,28 @@ public class ReplayView extends ViewBase {
 
     /**
      * Crée l'interface utilisateur pour la vue de replay.
-     * Initialise les éléments graphiques tels que les boutons, l'image, et le label.
+     * Initialise les éléments graphiques tels que les boutons, l'image, et le
+     * label.
      */
     @Override
     protected void createUI() {
-        //TODO: Créer l'interface utilisateur de Replay
         rootPane = new VBox();
-        // ...
+        rootPane.setPadding(new Insets(10, 10, 10, 10));
+        rootPane.setSpacing(10);
+        rootPane.setAlignment(Pos.CENTER); // Center align the root pane vertically
+
+        forwardButton = new Button("Forward");
+        backwardButton = new Button("Backward");
+        exitButton = new Button("Exit");
+
+        messageLabel = new Label();
+        imageView = new ImageView();
+
+        HBox buttonBox = new HBox();
+        buttonBox.setSpacing(10);
+        buttonBox.setAlignment(Pos.CENTER); // Center align the button box horizontally
+        buttonBox.getChildren().addAll(backwardButton, forwardButton);
+
+        rootPane.getChildren().addAll(messageLabel, imageView, buttonBox, exitButton);
     }
 }

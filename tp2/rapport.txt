@@ -1,21 +1,21 @@
 Rapport:
 Donjon avec 9 pieces :
-<0-Rien> : [<1-Gobelin>, <5-Boss>, <6-Potion>]
-<1-Gobelin> : [<0-Rien>, <2-Rien>]
-<2-Rien> : [<1-Gobelin>, <3-ArtefactMagique>]
-<3-ArtefactMagique> : [<2-Rien>, <4-Orque>]
-<4-Orque> : [<3-ArtefactMagique>, <5-Boss>, <8-Rien>]
-<5-Boss> : [<0-Rien>, <4-Orque>]
-<6-Potion> : [<0-Rien>, <7-Orque>]
-<7-Orque> : [<6-Potion>, <8-Rien>]
-<8-Rien> : [<4-Orque>, <7-Orque>]
+<0-Rien> : [<1-Gargouille>, <1-Gargouille>, <5-Boss>, <6-SacDeButin>]
+<1-Gargouille> : [<0-Rien>, <0-Rien>, <2-Rien>]
+<2-Rien> : [<1-Gargouille>, <3-ArtefactMagique>]
+<3-ArtefactMagique> : [<2-Rien>, <4-Gobelin>]
+<4-Gobelin> : [<3-ArtefactMagique>, <5-Boss>, <8-Rien>]
+<5-Boss> : [<4-Gobelin>, <0-Rien>]
+<6-SacDeButin> : [<0-Rien>, <7-Orque>]
+<7-Orque> : [<6-SacDeButin>, <8-Rien>]
+<8-Rien> : [<7-Orque>, <4-Gobelin>]
 Non pacifique.
 Contient un boss.
 Contient 2 tresors.
 Chemin jusqu'au boss :
 <0-Rien>
-<1-Gobelin>
+<1-Gargouille>
 <2-Rien>
 <3-ArtefactMagique>
-<4-Orque>
+<4-Gobelin>
 <5-Boss>

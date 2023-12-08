@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-import dirogue.example.code_squelette.*;
+import dirogue.example.code_squelette.Exterieur;
+import dirogue.example.code_squelette.Labyrinthe;
+import dirogue.example.code_squelette.Piece;
+import dirogue.example.code_squelette.PieceNotFoundException;
 
 /**
  * La classe MonLabyrinthe2 implémente l'interface Labyrinthe et Serializable.
@@ -24,8 +26,9 @@ public class MonLabyrinthe2 implements Labyrinthe, Serializable {
     private List<Piece> pieces;
     private Map<Integer, List<Integer>> adjList;
 
-     /**
-     * Constructeur de la classe MonLabyrinthe2 initialisant la liste des pièces et l'adjacence.
+    /**
+     * Constructeur de la classe MonLabyrinthe2 initialisant la liste des pièces et
+     * l'adjacence.
      */
     public MonLabyrinthe2() {
         pieces = new ArrayList<>();
@@ -57,7 +60,10 @@ public class MonLabyrinthe2 implements Labyrinthe, Serializable {
     }
 
     public void ajouteCorridor(int e1ID, int e2ID) throws PieceNotFoundException {
-        //TODO: Ajouter un corridor entre deux pièces avec les identifiants fournis
+        if (getPieceByID(e1ID) == null || getPieceByID(e2ID) == null)
+            throw new PieceNotFoundException();
+
+        addEdge(getPieceByID(e1ID), getPieceByID(e2ID));
     }
 
     /**
@@ -84,8 +90,14 @@ public class MonLabyrinthe2 implements Labyrinthe, Serializable {
      * @return Un tableau de pièces connectées à la pièce donnée.
      */
     public Piece[] getPiecesConnectees(Piece e) {
-        //TODO: Trouver les pièces connectées
-        return new Piece[0];
+        List<Integer> piecesConnectees = adjList.get(e.getID());
+        Piece[] ret = new Piece[piecesConnectees.size()];
+
+        for (int i = 0; i < piecesConnectees.size(); i++) {
+            ret[i] = getPieceByID(piecesConnectees.get(i));
+        }
+
+        return ret;
     }
 
     private void addEdge(Piece e1, Piece e2) {

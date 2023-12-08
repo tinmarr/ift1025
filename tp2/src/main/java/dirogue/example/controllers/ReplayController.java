@@ -1,17 +1,17 @@
 package dirogue.example.controllers;
 
-import dirogue.example.view.ReplayView;
-import dirogue.example.view.ViewBase;
-import dirogue.example.rencontre.Rencontre;
-import dirogue.example.App;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import dirogue.example.App;
+import dirogue.example.rencontre.Rencontre;
+import dirogue.example.view.ReplayView;
+import dirogue.example.view.ViewBase;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * Contrôleur pour la fonctionnalité de relecture des rencontres (Replay) dans
@@ -108,7 +108,8 @@ public class ReplayController extends ControllerBase {
      * Méthode pour naviguer vers la rencontre précédente dans le replay.
      */
     private void goBackward() {
-        //TODO: Aller à l'étape précédente du rapport. En atteignant la première étape, il devrait rester là et ne pas générer d'erreur.
+        if (currentIndex > 0)
+            currentIndex--;
         showCurrentMessageAndImage();
     }
 
@@ -116,7 +117,8 @@ public class ReplayController extends ControllerBase {
      * Méthode pour naviguer vers la rencontre suivante dans le replay.
      */
     private void goForward() {
-        //TODO: Aller à l'étape suivante du rapport. En atteignant la dernière étape, il devrait rester là et ne pas générer d'erreur.
+        if (currentIndex < encounters.length - 1)
+            currentIndex++;
         showCurrentMessageAndImage();
     }
 

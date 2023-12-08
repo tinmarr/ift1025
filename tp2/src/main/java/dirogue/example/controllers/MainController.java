@@ -1,14 +1,14 @@
 package dirogue.example.controllers;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+
 import dirogue.example.App;
 import dirogue.example.view.MainView;
 import dirogue.example.view.ViewBase;
 import javafx.scene.control.Button;
 import javafx.stage.FileChooser;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 
 /**
  * Contrôleur principal pour la vue principale de l'application.
@@ -55,12 +55,18 @@ public class MainController extends ControllerBase {
      * chargement.
      */
     private void loadTextFile() {
-        // TODO: Charger le fichier de rapport avec un FileChooser et afficher le texte
-        // dans la zone de texte, puis activer le bouton de relecture pour l'étape suivante.
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Load report");
         File selectedFile = fileChooser.showOpenDialog(mainView.getRoot().getScene().getWindow());
-        
-        // ...
+
+        if (selectedFile != null) {
+            try {
+                String content = new String(Files.readAllBytes(selectedFile.toPath()));
+                mainView.getTextArea().setText(content);
+                mainView.getReplayButton().setDisable(false);
+            } catch (IOException e) {
+                System.out.println("An error occurred while reading the file.");
+            }
+        }
     }
 }
